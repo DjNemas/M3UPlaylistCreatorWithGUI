@@ -1,0 +1,63 @@
+﻿<Window x:Class="M3UPlaylistCreatorWithGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:M3UPlaylistCreatorWithGUI"
+        mc:Ignorable="d"
+        Title="M3U Playlist Creator by Nemas" Height="500" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="M3U Playlist Creator" FontSize="24px" HorizontalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0 2 0 0" >
+            <Button Content="Select Folder" Click="OnSelectFolder" Margin="10 0 0 0" Width="95"/>
+            <TextBox x:Name="txtBox_FolderPath" HorizontalAlignment="Left" Text="Song Folder" TextWrapping="NoWrap" VerticalAlignment="Top" Width="200" FontSize="13px"  Margin="2 0 0 0"/>
+            <Label Content="Samsung Phone?" FontSize="10"/>
+            <CheckBox x:Name="checkBox_SamsungPhone" IsChecked="False" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 2 0 0">
+            <Label HorizontalAlignment="Left" HorizontalContentAlignment="Center" Content="Playlist Name" VerticalAlignment="Top" Width="100" FontSize="12px" Margin="5 0 0 0"/>
+            <TextBox Name="txtBox_Playlistname" HorizontalAlignment="Left" Text="New Playlist" TextWrapping="NoWrap" VerticalAlignment="Top" Width="200" FontSize="13px" Margin="2 0 0 0"/>
+        </StackPanel>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="0 2 0 0">
+                <Label Content="Select Type" FontSize="12px" Margin="5 0 0 0" HorizontalContentAlignment="Center" Width="100"/>
+                <ComboBox Name="cbox_types" Width="Auto" Margin="2 0 0 0"/>
+            </StackPanel>
+            <Label Grid.Column="2"  Name="lbl_InformUser" HorizontalAlignment="Center" FontSize="14px" Margin="1 0 1 0" HorizontalContentAlignment="Center"/>
+        </Grid>
+
+        <ListView Grid.Row="4" Name="list_SongList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button FontSize="14px" Content="Create" Click="OnCreate" Margin="0 3 0 3"/>
+            <ProgressBar Name="pb_Progress" Minimum="0" Maximum="100" Width="400" Height="10" Margin="10 0 0 0"/>
+        </StackPanel>
+    </Grid>
+</Window>
